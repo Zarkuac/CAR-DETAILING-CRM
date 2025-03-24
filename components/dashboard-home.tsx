@@ -1,4 +1,4 @@
-import { ArrowDownIcon, ArrowUpIcon, BarChart3, DollarSign, ShoppingCart, Users , ShieldOff} from "lucide-react"
+import { ArrowDownIcon, ArrowUpIcon, BarChart3, ShoppingCart, Users , ShieldOff} from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -9,8 +9,8 @@ export default function DashboardHome() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <h1 className="text-2xl font-bold tracking-tight">Dashboard Overview</h1>
         <Button variant="gradient">
-          <ShoppingCart className="h-4 w-4 mr-2" />
-          New Order
+          <Users className="h-4 w-4 mr-2" />
+          TEST BUTTON
         </Button>
       </div>
 
@@ -20,7 +20,7 @@ export default function DashboardHome() {
           <div className="h-1 w-full bg-brand-gradient"></div>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Test Test</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <ArrowUpIcon className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">111-222-333</div>
