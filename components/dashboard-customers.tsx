@@ -18,6 +18,8 @@ interface Customer {
   lastName?: string
 }
 
+
+
 export default function DashboardCustomers() {
   const { t } = useLanguage()
   const [isModalOpen, setIsModalOpen] = useState(false)

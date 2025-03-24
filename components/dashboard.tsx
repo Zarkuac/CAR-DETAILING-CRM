@@ -16,6 +16,11 @@ export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const [user] = useState({
+    firstName: "Tsotne",
+    lastName: "Zarkua"
+  })
+
   const modules = [
     {
       id: "home",
@@ -176,19 +181,22 @@ export default function Dashboard() {
             </h2>
           </div>
           <div className="flex items-center">
-            <div className="relative mr-10">
-              <button
-                onClick={() => setActiveModule("config")}
-                className="hover:opacity-80 transition-opacity"
-              >
-                <img 
-                  className="h-8 w-8 rounded-full cursor-pointer" 
-                  src="/avatar.svg" 
-                  alt="User avatar" 
-                />
-              </button>
-            </div>
-          </div>
+  <div className="relative mr-10 flex items-center gap-3">
+    <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+      {user.firstName} {user.lastName}
+    </span>
+    <button
+      onClick={() => setActiveModule("config")}
+      className="hover:opacity-80 transition-opacity"
+    >
+      <img 
+        className="h-8 w-8 rounded-full cursor-pointer" 
+        src="/avatar.svg" 
+        alt="User avatar" 
+      />
+    </button>
+  </div>
+</div> 
         </header>
 
         {/* Module content */}
