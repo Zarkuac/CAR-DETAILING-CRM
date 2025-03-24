@@ -86,34 +86,6 @@ export default function DashboardHome() {
         </Card>
       </div>
 
-      {/* Charts section */}
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card className="col-span-1 overflow-hidden">
-          <div className="h-1 w-full bg-brand-gradient"></div>
-          <CardHeader>
-            <CardTitle>Revenue Overview</CardTitle>
-            <CardDescription>Monthly revenue for the current year</CardDescription>
-          </CardHeader>
-          <CardContent className="h-80">
-            <div className="h-full w-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-md">
-              <p className="text-muted-foreground">Revenue Chart Placeholder</p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="col-span-1 overflow-hidden">
-          <div className="h-1 w-full bg-brand-gradient"></div>
-          <CardHeader>
-            <CardTitle>Customer Growth</CardTitle>
-            <CardDescription>New customers over time</CardDescription>
-          </CardHeader>
-          <CardContent className="h-80">
-            <div className="h-full w-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-md">
-              <p className="text-muted-foreground">Customer Chart Placeholder</p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
       {/* Recent activity */}
       <Card className="overflow-hidden">
         <div className="h-1 w-full bg-brand-gradient"></div>

@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -5,8 +7,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Separator } from "@/components/ui/separator"
+import { useLanguage } from "@/lib/language-context"
+import { useState } from "react"
 
 export default function DashboardConfig() {
+  const { language, setLanguage, t } = useLanguage()
+  const [pendingLanguage, setPendingLanguage] = useState(language)
+
+  const handleSave = () => {
+    setLanguage(pendingLanguage)
+    // You can add a success notification here
+  }
+
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold tracking-tight">Configuration</h1>
@@ -77,21 +89,25 @@ export default function DashboardConfig() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label>Language</Label>
+                    <Label htmlFor="language">Language</Label>
                     <p className="text-sm text-muted-foreground">Set your preferred language</p>
                   </div>
                   <div className="w-[180px]">
-                    <select className="w-full h-9 rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm">
-                      <option>English</option>
-                      <option>Russian</option>
-                      <option>Georgian</option>
+                    <select
+                      id="language"
+                      value={pendingLanguage}
+                      onChange={(e) => setPendingLanguage(e.target.value as "en" | "ka")}
+                      className="px-3 py-2 rounded-md border border-gray-300 dark:border-gray-700"
+                    >
+                      <option value="en">English</option>
+                      <option value="ka">ქართული</option>
                     </select>
                   </div>
                 </div>
               </div>
             </CardContent>
             <CardFooter className="flex justify-end">
-              <Button variant="gradient">Save Changes</Button>
+              <Button onClick={handleSave}>{t("config.saveChanges")}</Button>
             </CardFooter>
           </Card>
         </TabsContent>

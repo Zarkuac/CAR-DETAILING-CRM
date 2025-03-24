@@ -39,9 +39,9 @@ export default function DashboardCalendar() {
             <ChevronRight className="h-4 w-4" />
           </Button>
           <Button variant="gradient">
-            <Plus className="h-4 w-4 mr-2" />
-            New Event
-          </Button>
+              <Plus className="h-4 w-4 mr-2" />
+              New Event
+            </Button>
         </div>
       </div>
 

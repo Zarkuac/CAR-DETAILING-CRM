@@ -3,8 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/lib/language-context"
 
 export default function DashboardCustomers() {
+  const { t } = useLanguage()
+  
   const customers = [
     { id: 1, name: "Alex Johnson", email: "alex@example.com", status: "Active", spent: "$1,234.56" },
     { id: 2, name: "Sarah Williams", email: "sarah@example.com", status: "Active", spent: "$2,345.67" },
@@ -19,29 +22,29 @@ export default function DashboardCustomers() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h1 className="text-2xl font-bold tracking-tight">Customers</h1>
+        <h1 className="text-2xl font-bold tracking-tight">{t("customers.title")}</h1>
         <div className="flex items-center gap-2">
           <div className="relative">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input type="search" placeholder="Search customers..." className="pl-8 w-full sm:w-[300px]" />
+            <Input type="search" placeholder={t("customers.search")} className="pl-8 w-full sm:w-[300px]" />
           </div>
-          <Button variant="gradient">Add Customer</Button>
+          <Button variant="gradient">{t("customers.add")}</Button>
         </div>
       </div>
 
       <Card className="overflow-hidden">
         <div className="h-1 w-full bg-brand-gradient"></div>
         <CardHeader>
-          <CardTitle>Customer List</CardTitle>
+          <CardTitle>{t("customers.list")}</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Email</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="text-right">Total Spent</TableHead>
+                <TableHead>{t("customers.name")}</TableHead>
+                <TableHead>{t("customers.email")}</TableHead>
+                <TableHead>{t("customers.status")}</TableHead>
+                <TableHead className="text-right">{t("customers.spent")}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

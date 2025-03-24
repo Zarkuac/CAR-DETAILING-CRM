@@ -8,44 +8,46 @@ import DashboardCustomers from "./dashboard-customers"
 import DashboardCalendar from "./dashboard-calendar"
 import DashboardReports from "./dashboard-reports"
 import DashboardConfig from "./dashboard-config"
-
-const modules = [
-  {
-    id: "home",
-    name: "Home",
-    icon: Home,
-    component: DashboardHome,
-  },
-  {
-    id: "customers",
-    name: "Customers",
-    icon: Users,
-    component: DashboardCustomers,
-  },
-  {
-    id: "calendar",
-    name: "Calendar",
-    icon: Calendar,
-    component: DashboardCalendar,
-  },
-  {
-    id: "reports",
-    name: "Reports",
-    icon: BarChart3,
-    component: DashboardReports,
-  },
-  {
-    id: "config",
-    name: "Configuration",
-    icon: Settings,
-    component: DashboardConfig,
-  },
-]
+import { useLanguage } from "@/lib/language-context"
 
 export default function Dashboard() {
+  const { t } = useLanguage()
   const [activeModule, setActiveModule] = useState("home")
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const modules = [
+    {
+      id: "home",
+      name: t("nav.home"),
+      icon: Home,
+      component: DashboardHome,
+    },
+    {
+      id: "customers",
+      name: t("nav.customers"),
+      icon: Users,
+      component: DashboardCustomers,
+    },
+    {
+      id: "calendar",
+      name: t("nav.calendar"),
+      icon: Calendar,
+      component: DashboardCalendar,
+    },
+    {
+      id: "reports",
+      name: t("nav.reports"),
+      icon: BarChart3,
+      component: DashboardReports,
+    },
+    {
+      id: "config",
+      name: t("nav.config"),
+      icon: Settings,
+      component: DashboardConfig,
+    },
+  ]
 
   const ActiveComponent = modules.find((m) => m.id === activeModule)?.component || DashboardHome
 
@@ -61,7 +63,7 @@ export default function Dashboard() {
         <div className="flex items-center justify-between h-16 px-4 border-b dark:border-gray-700">
           <h1 className="text-xl font-bold bg-gradient-to-r ml-[31px]
           from-brand-blue to-brand-purple bg-clip-text text-transparent">
-            PERFORMANCE
+            {t("company.name")}
           </h1>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -99,7 +101,7 @@ export default function Dashboard() {
             className="flex items-center w-full px-4 py-3 text-left rounded-lg transition-colors text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
           >
             <LogOut className="h-5 w-5 mr-3" />
-            <span className="font-medium">Logout</span>
+            <span className="font-medium">{t("nav.logout")}</span>
           </button>
         </div>
       </aside>
@@ -121,7 +123,7 @@ export default function Dashboard() {
       >
         <div className="flex items-center justify-between h-16 px-4 border-b dark:border-gray-700">
           <h1 className="text-xl font-bold bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
-            COMPANY NAME
+            {t("company.name")}
           </h1>
           <button
             onClick={() => setMobileMenuOpen(false)}
