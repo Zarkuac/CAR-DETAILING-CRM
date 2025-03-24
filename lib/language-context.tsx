@@ -14,7 +14,7 @@ const translations = {
   en: {
     // Navigation
     "nav.home": "Home",
-    "nav.customers": "Customers",
+    "nav.customers": "Applicants",
     "nav.calendar": "Calendar",
     "nav.reports": "Reports",
     "nav.config": "Configuration",
@@ -30,14 +30,14 @@ const translations = {
     "config.languageSelect": "Language / ენა",
     
     // Customers
-    "customers.title": "Customers",
-    "customers.search": "Search customers...",
-    "customers.add": "Add Customer",
-    "customers.list": "Customer List",
+    "customers.title": "Applicants",
+    "customers.search": "Search applicants...",
+    "customers.add": "Add Applicant",
+    "customers.list": "Applicant List",
     "customers.name": "Name",
     "customers.email": "Email",
     "customers.status": "Status",
-    "customers.spent": "Total Spent",
+    "customers.vacancy": "Vacancy",
     
     // Calendar
     "calendar.title": "Calendar",
@@ -74,7 +74,7 @@ const translations = {
     "customers.name": "სახელი",
     "customers.email": "ელ-ფოსტა",
     "customers.status": "სტატუსი",
-    "customers.spent": "დახარჯული თანხა",
+    "customers.vacancy": "ვაკანსია",
     
     // Calendar
     "calendar.title": "კალენდარი",

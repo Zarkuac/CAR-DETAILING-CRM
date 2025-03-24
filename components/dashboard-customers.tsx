@@ -12,7 +12,7 @@ interface Customer {
   name: string
   email: string
   status: string
-  spent: string
+  vacancy: string
   mobile?: string
   firstName?: string
   lastName?: string
@@ -30,32 +30,20 @@ export default function DashboardCustomers() {
     firstName: '',
     lastName: '',
     email: '',
-    mobile: ''
+    mobile: '',
+    vacancy: ''
   })
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 10
 
   const [customers, setCustomers] = useState<Customer[]>([
-    { id: 1, name: "Alex Johnson", email: "alex@example.com", status: "Active", spent: "$1,234.56" },
-    { id: 2, name: "Sarah Williams", email: "sarah@example.com", status: "Active", spent: "$2,345.67" },
-    { id: 3, name: "Michael Brown", email: "michael@example.com", status: "Inactive", spent: "$345.67" },
-    { id: 4, name: "Emily Davis", email: "emily@example.com", status: "Active", spent: "$3,456.78" },
-    { id: 5, name: "David Miller", email: "david@example.com", status: "Active", spent: "$567.89" },
-    { id: 6, name: "Jessica Wilson", email: "jessica@example.com", status: "Inactive", spent: "$678.90" },
-    { id: 7, name: "James Taylor", email: "james@example.com", status: "Active", spent: "$4,567.89" },
-    { id: 8, name: "Olivia Martinez", email: "olivia@example.com", status: "Active", spent: "$789.01" },
-    { id: 9, name: "Daniel Lee", email: "daniel@example.com", status: "Active", spent: "$890.12" },
-    { id: 10, name: "Sophia Chen", email: "sophia@example.com", status: "Active", spent: "$901.23" },
-    { id: 11, name: "Matthew Rodriguez", email: "matthew@example.com", status: "Inactive", spent: "$1,012.34" },
-    { id: 12, name: "Ava Hernandez", email: "ava@example.com", status: "Active", spent: "$1,123.45" },
-    { id: 13, name: "William Clark", email: "william@example.com", status: "Active", spent: "$1,234.56" },
-    { id: 14, name: "Isabella Lewis", email: "isabella@example.com", status: "Inactive", spent: "$1,345.67" },
-    { id: 15, name: "Ethan Walker", email: "ethan@example.com", status: "Active", spent: "$1,456.78" },
-    { id: 16, name: "Mia Garcia", email: "mia@example.com", status: "Active", spent: "$1,567.89" },
-    { id: 17, name: "Alexander Rodriguez", email: "alexander@example.com", status: "Inactive", spent: "$1,678.90" },
-    { id: 18, name: "Avery Smith", email: "avery@example.com", status: "Active", spent: "$1,789.01" },
-    { id: 19, name: "Ethan Walker", email: "ethan@example.com", status: "Active", spent: "$1,456.78" },
-    { id: 20, name: "Mia Garcia", email: "mia@example.com", status: "Active", spent: "$1,567.89" },    
+    { id: 1, name: "Alex Johnson", email: "alex@example.com", status: "Active", vacancy: "Front-End Developer" },
+    { id: 2, name: "Sarah Williams", email: "sarah@example.com", status: "Active", vacancy: "Back-End Developer" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", status: "Inactive", vacancy: "Full-Stack Developer" },
+    { id: 4, name: "Emily Davis", email: "emily@example.com", status: "Active", vacancy: "Front-End Developer" },
+    { id: 5, name: "David Miller", email: "david@example.com", status: "Active", vacancy: "Back-End Developer" },
+    { id: 6, name: "Jessica Wilson", email: "jessica@example.com", status: "Inactive", vacancy: "Full-Stack Developer" },
+    { id: 7, name: "James Taylor", email: "james@example.com", status: "Active", vacancy: "Front-End Developer" },
     
   ])
 
@@ -73,7 +61,7 @@ export default function DashboardCustomers() {
         email: newCustomer.email,
         mobile: newCustomer.mobile,
         status: "Active",
-        spent: "$0.00"
+        vacancy: newCustomer.vacancy
       }
 
       setCustomers([...customers, customer])
@@ -82,7 +70,8 @@ export default function DashboardCustomers() {
         firstName: '',
         lastName: '',
         email: '',
-        mobile: ''
+        mobile: '',
+        vacancy: ''
       })
     }
   }
@@ -135,7 +124,7 @@ export default function DashboardCustomers() {
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white dark:bg-gray-800 rounded-lg p-8 w-full max-w-md shadow-xl">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-semibold">Add New Customer</h3>
+              <h3 className="text-xl font-semibold">Add New Applicant</h3>
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
@@ -201,6 +190,21 @@ export default function DashboardCustomers() {
                 />
               </div>
               
+              <div className="space-y-2">
+                <Label htmlFor="vacancy" className="text-sm font-medium">
+                  Vacancy
+                </Label>
+                <Input
+                  id="vacancy"
+                  type="job-description"
+                  value={newCustomer.vacancy}
+                  onChange={(e) => setNewCustomer({ ...newCustomer, vacancy: e.target.value })}
+                  placeholder="Job Description"
+                  className="w-full"
+                />
+              </div>
+
+
               <div className="flex justify-end gap-3 mt-8 pt-4 border-t dark:border-gray-700">
                 <Button 
                   variant="outline" 
@@ -235,7 +239,7 @@ export default function DashboardCustomers() {
                 <TableHead>{t("customers.name")}</TableHead>
                 <TableHead>{t("customers.email")}</TableHead>
                 <TableHead>{t("customers.status")}</TableHead>
-                <TableHead className="text-right">{t("customers.spent")}</TableHead>
+                <TableHead className="text-right">{t("customers.vacancy")}</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -256,7 +260,7 @@ export default function DashboardCustomers() {
                       {customer.status}
                     </span>
                   </TableCell>
-                  <TableCell className="text-right">{customer.spent}</TableCell>
+                  <TableCell className="text-right">{customer.vacancy}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
                       <button
@@ -333,7 +337,7 @@ export default function DashboardCustomers() {
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white dark:bg-gray-800 rounded-lg p-8 w-full max-w-md shadow-xl">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-semibold">Customer Information</h3>
+              <h3 className="text-xl font-semibold">Applicant Information</h3>
               <button
                 onClick={() => setIsInfoModalOpen(false)}
                 className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
@@ -360,8 +364,8 @@ export default function DashboardCustomers() {
                 <p className="font-medium">{selectedCustomer.status}</p>
               </div>
               <div>
-                <label className="text-sm text-gray-500 dark:text-gray-400">Total Spent</label>
-                <p className="font-medium">{selectedCustomer.spent}</p>
+                <label className="text-sm text-gray-500 dark:text-gray-400">Vacancy</label>
+                <p className="font-medium">{selectedCustomer.vacancy}</p>
               </div>
             </div>
           </div>
@@ -429,7 +433,17 @@ export default function DashboardCustomers() {
                   onChange={(e) => setSelectedCustomer({ ...selectedCustomer, mobile: e.target.value })}
                 />
               </div>
-              
+
+              <div className="space-y-2">
+                <Label htmlFor="editVacancy">Vacancy</Label>
+                <Input
+                  id="editVacancy"
+                  type="job-description"
+                  value={selectedCustomer.vacancy}
+                  onChange={(e) => setSelectedCustomer({ ...selectedCustomer, vacancy: e.target.value })}
+                />
+              </div>
+
               <div className="flex justify-end gap-3 mt-8 pt-4 border-t dark:border-gray-700">
                 <Button variant="outline" onClick={() => setIsEditModalOpen(false)}>
                   Cancel
@@ -447,22 +461,22 @@ export default function DashboardCustomers() {
         <Card className="overflow-hidden">
           <div className="h-1 w-full bg-brand-gradient"></div>
           <CardHeader>
-            <CardTitle>Customer Segments</CardTitle>
+            <CardTitle>Applicant Segments</CardTitle>
           </CardHeader>
           <CardContent className="h-80">
             <div className="h-full w-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-md">
-              <p className="text-muted-foreground">Customer Segments Chart</p>
+              <p className="text-muted-foreground">Applicant Segments Chart</p>
             </div>
           </CardContent>
         </Card>
         <Card className="overflow-hidden">
           <div className="h-1 w-full bg-brand-gradient"></div>
           <CardHeader>
-            <CardTitle>Customer Retention</CardTitle>
+            <CardTitle>Applicant Retention</CardTitle>
           </CardHeader>
           <CardContent className="h-80">
             <div className="h-full w-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-md">
-              <p className="text-muted-foreground">Retention Chart</p>
+              <p className="text-muted-foreground">Applicant Retention Chart</p>
             </div>
           </CardContent>
         </Card>
