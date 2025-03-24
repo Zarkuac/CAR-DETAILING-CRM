@@ -18,25 +18,25 @@ export default function DashboardReports() {
       <Tabs defaultValue="sales">
         <TabsList className="grid w-full grid-cols-4 bg-gradient-to-r from-brand-blue/10 to-brand-purple/10 p-1">
           <TabsTrigger value="sales" className="data-[state=active]:bg-brand-gradient data-[state=active]:text-white">
-            Sales
+            Vacancies
           </TabsTrigger>
           <TabsTrigger
             value="customers"
             className="data-[state=active]:bg-brand-gradient data-[state=active]:text-white"
           >
-            Customers
+            Applicants
           </TabsTrigger>
           <TabsTrigger
             value="inventory"
             className="data-[state=active]:bg-brand-gradient data-[state=active]:text-white"
           >
-            Inventory
+            Meetings
           </TabsTrigger>
           <TabsTrigger
             value="marketing"
             className="data-[state=active]:bg-brand-gradient data-[state=active]:text-white"
           >
-            Marketing
+            Interviews
           </TabsTrigger>
         </TabsList>
 

@@ -218,7 +218,7 @@ export default function DashboardCustomers() {
                   onClick={handleAddCustomer}
                   className="px-4 py-2"
                 >
-                  Add Customer
+                  Add Applicant
                 </Button>
               </div>
             </div>
