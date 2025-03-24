@@ -21,7 +21,7 @@ const translations = {
     "nav.logout": "Logout",
     
     // Common
-    "company.name": "PERFORMANCE",
+    "company.name": "Workify",
     
     // Configuration
     "config.language": "Language",
@@ -51,7 +51,7 @@ const translations = {
   ka: {
     // Navigation
     "nav.home": "მთავარი",
-    "nav.customers": "მომხმარებლები",
+    "nav.customers": "აპლიკანტები",
     "nav.calendar": "კალენდარი",
     "nav.reports": "ანგარიშები",
     "nav.config": "კონფიგურაცია",
@@ -67,10 +67,10 @@ const translations = {
     "config.languageSelect": "Language / ენა",
     
     // Customers
-    "customers.title": "მომხმარებლები",
-    "customers.search": "მომხმარებლების ძიება...",
-    "customers.add": "მომხმარებლის დამატება",
-    "customers.list": "მომხმარებელთა სია",
+    "customers.title": "აპლიკანტები",
+    "customers.search": "აპლიკანტების ძიება...",
+    "customers.add": "აპლიკანტის დამატება",
+    "customers.list": "აპლიკანტების სია",
     "customers.name": "სახელი",
     "customers.email": "ელ-ფოსტა",
     "customers.status": "სტატუსი",

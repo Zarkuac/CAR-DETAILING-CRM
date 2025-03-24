@@ -18,7 +18,7 @@ export default function DashboardCalendar() {
   const [currentDate, setCurrentDate] = useState(new Date())
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [events, setEvents] = useState<Event[]>([
-    { id: 1, title: "Team Meeting", time: "9:00 AM - 10:00 AM", type: "meeting", date: new Date() },
+    { id: 1, title: "Team Meeting", time: "9:00 AM - 9:30 AM", type: "meeting", date: new Date() },
     { id: 2, title: "Product Demo", time: "11:30 AM - 12:30 PM", type: "demo", date: new Date() },
     { id: 3, title: "Client Call", time: "2:00 PM - 3:00 PM", type: "call", date: new Date() },
     { id: 4, title: "Project Review", time: "4:00 PM - 5:00 PM", type: "meeting", date: new Date() },
